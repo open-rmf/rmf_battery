@@ -18,8 +18,9 @@
 #ifndef RMF_BATTERY__DEVICEPOWERSINK_HPP
 #define RMF_BATTERY__DEVICEPOWERSINK_HPP
 
-namespace rmf_battery {
+#include <memory>
 
+namespace rmf_battery {
 
 //==============================================================================
 class DevicePowerSink
@@ -39,6 +40,9 @@ public:
 
   virtual ~DevicePowerSink() = default;
 };
+
+using DevicePowerSinkPtr = std::shared_ptr<DevicePowerSink>;
+using ConstDevicePowerSinkPtr = std::shared_ptr<const DevicePowerSink>;
 
 } // namespace rmf_battery
 

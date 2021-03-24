@@ -22,7 +22,6 @@
 
 namespace rmf_battery {
 
-
 //==============================================================================
 class MotionPowerSink
 {
@@ -41,6 +40,9 @@ public:
 
   virtual ~MotionPowerSink() = default;
 };
+
+using MotionPowerSinkPtr = std::shared_ptr<MotionPowerSink>;
+using ConstMotionPowerSinkPtr = std::shared_ptr<const MotionPowerSink>;
 
 } // namespace rmf_battery
 
