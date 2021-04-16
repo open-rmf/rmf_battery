@@ -22,7 +22,7 @@
 SCENARIO("Test MechanicalSystem")
 {
   using MechanicalSystem = rmf_battery::agv::MechanicalSystem;
-  
+
   WHEN("Valid values are supplied to make()")
   {
     auto mechanical_system = MechanicalSystem::make(10.0, 20.0, 0.3);

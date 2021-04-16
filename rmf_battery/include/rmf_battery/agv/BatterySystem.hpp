@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2020 Open Source Robotics Foundation
  *

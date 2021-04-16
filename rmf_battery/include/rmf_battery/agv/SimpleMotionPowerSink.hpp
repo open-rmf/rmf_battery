@@ -48,7 +48,7 @@ public:
 
   /// Get a constant reference to the mechanical system
   const MechanicalSystem& mechanical_system() const;
-  
+
   /// Compute change in state-of-charge estimate of battery due to locomotion
   /// of the robot along a trajectory.
   ///

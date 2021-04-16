@@ -17,7 +17,7 @@ jobs:
           target-ros2-distro: foxy
           # build all packages listed in the meta package
           package-name: |
-            rmf_traffic
+            rmf_battery
           vcs-repo-file-url: |
             https://raw.githubusercontent.com/open-rmf/rmf/main/rmf.repos
           colcon-defaults: |

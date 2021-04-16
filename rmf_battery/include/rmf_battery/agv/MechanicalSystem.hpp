@@ -40,7 +40,7 @@ public:
   ///
   /// \param[in] friction_coefficient
   ///   The coefficient of kinetic friction or rolling resistance coefficient
-  ///   measured at the wheels of the robot. This value is used to compute the 
+  ///   measured at the wheels of the robot. This value is used to compute the
   ///   energy loss due to rotation of the vehicle's wheels during locomotion.
   ///   This value is the dimensionless constant Crr as described in the
   ///   reference below.
