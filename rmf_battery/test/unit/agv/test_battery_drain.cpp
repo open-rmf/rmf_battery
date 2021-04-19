@@ -50,10 +50,12 @@ SCENARIO("Test battery drain with RobotA")
   auto power_system_optional = PowerSystem::make(10.0);
   REQUIRE(power_system_optional);
   const PowerSystem& power_system_processor = *power_system_optional;
-  
-  const SimpleMotionPowerSink motion_power_sink{battery_system, mechanical_system};
-  const SimpleDevicePowerSink device_power_sink{battery_system, power_system_processor};
-  
+
+  const SimpleMotionPowerSink motion_power_sink{battery_system,
+    mechanical_system};
+  const SimpleDevicePowerSink device_power_sink{battery_system,
+    power_system_processor};
+
 
   // Initializing vehicle traits
   const rmf_traffic::agv::VehicleTraits traits(
@@ -77,7 +79,7 @@ SCENARIO("Test battery drain with RobotA")
       rmf_traffic::time::to_seconds(trajectory.duration()));
 
     const double remaining_soc = initial_soc - dSOC_motion - dSOC_device;
-    // We expect less than 1% depletion of the battery level after this robot 
+    // We expect less than 1% depletion of the battery level after this robot
     // travels a distance of 100m.
     const bool ok = remaining_soc > 0.99 && remaining_soc < 1.0;
     CHECK(ok);
@@ -128,9 +130,11 @@ SCENARIO("Test SimpleBatteryEstimator with RobotB")
   REQUIRE(power_system_optional);
   const PowerSystem& power_system_processor = *power_system_optional;
 
-  const SimpleMotionPowerSink motion_power_sink{battery_system, mechanical_system};
-  const SimpleDevicePowerSink device_power_sink{battery_system, power_system_processor};
-  
+  const SimpleMotionPowerSink motion_power_sink{battery_system,
+    mechanical_system};
+  const SimpleDevicePowerSink device_power_sink{battery_system,
+    power_system_processor};
+
   // Initializing vehicle traits
   const rmf_traffic::agv::VehicleTraits traits(
     {1.0, 0.7}, {0.6, 0.5}, {nullptr, nullptr});
@@ -153,7 +157,7 @@ SCENARIO("Test SimpleBatteryEstimator with RobotB")
       rmf_traffic::time::to_seconds(trajectory.duration()));
 
     const double remaining_soc = initial_soc - dSOC_motion - dSOC_device;
-    // We expect less than 2% depletion of the battery level after this robot 
+    // We expect less than 2% depletion of the battery level after this robot
     // travels a distance of 100m.
     const bool ok = remaining_soc > 0.98 && remaining_soc < 1.0;
     CHECK(ok);
@@ -277,9 +281,11 @@ SCENARIO("Testing Cleaning Request")
   REQUIRE(power_system_optional);
   const PowerSystem& power_system_processor = *power_system_optional;
 
-  const SimpleMotionPowerSink motion_power_sink{battery_system, mechanical_system};
-  const SimpleDevicePowerSink device_power_sink{battery_system, power_system_processor};
-  
+  const SimpleMotionPowerSink motion_power_sink{battery_system,
+    mechanical_system};
+  const SimpleDevicePowerSink device_power_sink{battery_system,
+    power_system_processor};
+
   // Initializing vehicle traits
   const rmf_traffic::agv::VehicleTraits traits(
     {0.7, 0.5}, {0.4, 1.0}, {nullptr, nullptr});

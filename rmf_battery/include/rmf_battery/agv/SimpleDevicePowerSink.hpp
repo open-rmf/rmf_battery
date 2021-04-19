@@ -38,7 +38,7 @@ public:
   ///   The BatterySystem of the robot
   ///
   /// \param[in] power_system
-  ///   The PowerSystem for this device  
+  ///   The PowerSystem for this device
   SimpleDevicePowerSink(
     const BatterySystem& battery_system,
     const PowerSystem& power_system);
@@ -59,7 +59,7 @@ public:
   /// \return The charge depleted as a fraction of the total battery capacity
   virtual double compute_change_in_charge(
     const double run_time) const final;
-  
+
   class Implementation;
 
 private:

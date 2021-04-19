@@ -80,7 +80,7 @@ double SimpleMotionPowerSink::compute_change_in_charge(
   const double capacity = _pimpl->battery_system.capacity();
   const double nominal_voltage = _pimpl->battery_system.nominal_voltage();
   const double mass = _pimpl->mechanical_system.mass();
-  const double moment_of_inertia = 
+  const double moment_of_inertia =
     _pimpl->mechanical_system.moment_of_inertia();
   const double friction = _pimpl->mechanical_system.friction_coefficient();
 

@@ -32,7 +32,7 @@ std::optional<PowerSystem> PowerSystem::make(double nominal_power)
 {
   if (nominal_power < 0.0)
     return std::nullopt;
-  
+
   PowerSystem power_system;
   power_system._pimpl->nominal_power = nominal_power;
 
