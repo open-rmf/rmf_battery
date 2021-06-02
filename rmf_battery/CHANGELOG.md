@@ -1,6 +1,6 @@
 ## Changelog for package rmf_battery
 
-0.1.0 (2021-XX-XX)
+0.1.0 (2021-06-02)
 ------------------
 * Provides core `rmf_battery::agv` utilities
     * `BatterySystem` - Describe battery properties of the vehicle
