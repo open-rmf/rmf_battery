@@ -1,5 +1,9 @@
 ## Changelog for package rmf_battery
 
+0.1.1 (2021-09-08)
+------------------
+* Making package ament agnostic
+
 0.1.0 (2021-06-02)
 ------------------
 * Provides core `rmf_battery::agv` utilities
