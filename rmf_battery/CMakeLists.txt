@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
-project(rmf_battery)
+project(rmf_battery VERSION 0.1.0)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS on)
 
 # Default to C++17
 if(NOT CMAKE_CXX_STANDARD)
@@ -21,10 +23,11 @@ endif()
 include(GNUInstallDirs)
 
 # find dependencies
-find_package(ament_cmake REQUIRED)
 find_package(rmf_utils REQUIRED)
 find_package(rmf_traffic REQUIRED)
 find_package(Eigen3 REQUIRED)
+find_package(ament_cmake_catch2 QUIET)
+find_package(rmf_cmake_uncrustify QUIET)
 
 # ===== Battery modelling library
 file(GLOB_RECURSE core_lib_srcs "src/rmf_battery/*.cpp")
@@ -45,11 +48,7 @@ target_include_directories(rmf_battery
     ${EIGEN3_INCLUDE_DIRS}
 )
 
-ament_export_targets(rmf_battery HAS_LIBRARY_TARGET)
-ament_export_dependencies(rmf_utils)
-
-if(BUILD_TESTING)
-  find_package(ament_cmake_catch2 REQUIRED)
+if(BUILD_TESTING AND ament_cmake_catch2_FOUND AND rmf_cmake_uncrustify_FOUND)
 
   file(GLOB_RECURSE unit_test_srcs "test/*.cpp")
 
@@ -65,7 +64,6 @@ if(BUILD_TESTING)
       $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/>
   )
 
-  find_package(rmf_cmake_uncrustify REQUIRED)
   find_file(uncrustify_config_file
     NAMES "rmf_code_style.cfg"
     PATHS "${rmf_utils_DIR}/../../../share/rmf_utils/")
@@ -76,6 +74,32 @@ if(BUILD_TESTING)
     MAX_LINE_LENGTH 80
   )
 endif()
+
+# Create cmake config files
+include(CMakePackageConfigHelpers)
+
+set(INSTALL_CONFIG_DIR "${CMAKE_INSTALL_LIBDIR}/rmf_battery/cmake")
+set(PACKAGE_CONFIG_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/rmf_battery-config-version.cmake")
+set(PACKAGE_CONFIG_FILE "${CMAKE_CURRENT_BINARY_DIR}/rmf_battery-config.cmake")
+
+configure_package_config_file(
+  "${CMAKE_CURRENT_LIST_DIR}/cmake/rmf_battery-config.cmake.in"
+  ${PACKAGE_CONFIG_FILE}
+  INSTALL_DESTINATION ${INSTALL_CONFIG_DIR}
+)
+
+write_basic_package_version_file(
+  ${PACKAGE_CONFIG_VERSION_FILE}
+  COMPATIBILITY ExactVersion
+)
+
+install(
+  TARGETS rmf_battery
+  EXPORT  rmf_battery-targets
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
 
 install(
   DIRECTORY include/
@@ -90,4 +114,24 @@ install(
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 
-ament_package()
+install(
+  FILES
+    ${PACKAGE_CONFIG_VERSION_FILE}
+    ${PACKAGE_CONFIG_FILE}
+  DESTINATION ${INSTALL_CONFIG_DIR}
+)
+
+install(
+  EXPORT rmf_battery-targets
+  FILE rmf_battery-targets.cmake
+  NAMESPACE rmf_battery::
+  DESTINATION ${INSTALL_CONFIG_DIR}
+)
+
+export(
+  EXPORT rmf_battery-targets
+  FILE ${CMAKE_CURRENT_BINARY_DIR}/rmf_battery-targets.cmake
+  NAMESPACE rmf_battery::
+)
+
+export(PACKAGE rmf_battery)
