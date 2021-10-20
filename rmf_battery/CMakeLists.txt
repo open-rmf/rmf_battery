@@ -25,8 +25,8 @@ include(GNUInstallDirs)
 # find dependencies
 find_package(rmf_utils REQUIRED)
 find_package(rmf_traffic REQUIRED)
-find_package(eigen3_cmake_module REQUIRED)
-find_package(Eigen3)
+find_package(eigen3_cmake_module QUIET)
+find_package(Eigen3 REQUIRED)
 find_package(ament_cmake_catch2 QUIET)
 find_package(rmf_cmake_uncrustify QUIET)
 
