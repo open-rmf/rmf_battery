@@ -25,6 +25,7 @@ include(GNUInstallDirs)
 # find dependencies
 find_package(rmf_utils REQUIRED)
 find_package(rmf_traffic REQUIRED)
+find_package(eigen3_cmake_module QUIET)
 find_package(Eigen3 REQUIRED)
 find_package(ament_cmake_catch2 QUIET)
 find_package(rmf_cmake_uncrustify QUIET)
@@ -45,7 +46,7 @@ target_include_directories(rmf_battery
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
-    ${EIGEN3_INCLUDE_DIRS}
+    ${Eigen3_INCLUDE_DIRS}
 )
 
 if(BUILD_TESTING AND ament_cmake_catch2_FOUND AND rmf_cmake_uncrustify_FOUND)
