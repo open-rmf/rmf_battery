@@ -134,5 +134,3 @@ export(
   FILE ${CMAKE_CURRENT_BINARY_DIR}/rmf_battery-targets.cmake
   NAMESPACE rmf_battery::
 )
-
-export(PACKAGE rmf_battery)
