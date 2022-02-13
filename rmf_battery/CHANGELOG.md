@@ -1,5 +1,10 @@
 ## Changelog for package rmf_battery
 
+0.1.3 (2022-02-14)
+------------------
+* Use ament_cmake_uncrustify [#20](https://github.com/open-rmf/rmf_battery/pull/20)
+* Prepend package path to AMENT_PREFIX_PATH [#22](https://github.com/open-rmf/rmf_battery/pull/22)
+
 0.1.2 (2021-10-27)
 ------------------
 * Using eigen3_cmake_module to fix RHEL build [#16](https://github.com/open-rmf/rmf_battery/commit/7e1a4e73135963df2542e40913aa50ae79266fb3)
