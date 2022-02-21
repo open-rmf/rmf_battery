@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(rmf_battery VERSION 0.1.1)
+project(rmf_battery VERSION 0.1.3)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS on)
 
@@ -134,10 +134,3 @@ export(
   FILE ${CMAKE_CURRENT_BINARY_DIR}/rmf_battery-targets.cmake
   NAMESPACE rmf_battery::
 )
-
-# Export ament index path
-file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/share/ament_index/resource_index/packages/${PROJECT_NAME} "")
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/share/ament_index/resource_index/packages/${PROJECT_NAME} DESTINATION share/ament_index/resource_index/packages)
-
-file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/share/${PROJECT_NAME}/hook/ament_prefix_path.dsv "prepend-non-duplicate;AMENT_PREFIX_PATH;")
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/share/${PROJECT_NAME}/hook/ament_prefix_path.dsv DESTINATION share/${PROJECT_NAME}/hook)
