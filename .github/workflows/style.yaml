@@ -19,5 +19,6 @@ jobs:
         uses: actions/checkout@v2
       - name: uncrustify
         run: |
+          sudo apt update && sudo apt install wget
           wget https://raw.githubusercontent.com/open-rmf/rmf_utils/main/rmf_utils/test/format/rmf_code_style.cfg
           /ros_entrypoint.sh ament_uncrustify -c rmf_code_style.cfg rmf_battery --language C++
