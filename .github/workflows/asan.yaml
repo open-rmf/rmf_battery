@@ -1,6 +1,5 @@
 name: asan
 on:
-on:
   pull_request:
   push:
     branches: [ main ]
