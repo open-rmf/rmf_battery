@@ -2,6 +2,11 @@
 Changelog for package rmf_battery
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Switch to rst changelogs
+* Contributors: Yadunund
+
 0.1.4 (2023-04-15)
 ------------------
 * Reusable ci (`#28 <https://github.com/open-rmf/rmf_battery/pull/28>`_)
