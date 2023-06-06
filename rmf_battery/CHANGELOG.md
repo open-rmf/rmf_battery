@@ -1,5 +1,13 @@
 ## Changelog for package rmf_battery
 
+0.1.4 (2023-04-15)
+-----------
+* Port changes from main into rolling [#34](https://github.com/open-rmf/rmf_battery/issues/34)
+* Reusable ci [#28](https://github.com/open-rmf/rmf_battery/issues/28)
+* Add buildtool_depend on cmake [#31](https://github.com/open-rmf/rmf_battery/issues/31)
+* Add back missing ament index path exporting in CMakeLists [#33](https://github.com/open-rmf/rmf_battery/issues/33)
+* Contributors: Chen Bainian, Esteban Martinena Guerrero, Scott K Logan, Yadunund
+
 0.1.3 (2022-02-14)
 ------------------
 * Use ament_cmake_uncrustify [#20](https://github.com/open-rmf/rmf_battery/pull/20)

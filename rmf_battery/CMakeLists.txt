@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(rmf_battery VERSION 0.1.3)
+project(rmf_battery VERSION 0.1.4)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS on)
 
