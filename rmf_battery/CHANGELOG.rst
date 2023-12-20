@@ -2,6 +2,9 @@
 Changelog for package rmf_battery
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.2.0 (2023-06-06)
 ------------------
 * Switch to rst changelogs
