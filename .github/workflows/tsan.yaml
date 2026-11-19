@@ -11,7 +11,7 @@ on:
       repos_branch_override:
         description: 'Branch of open-rmf/rmf for rmf.repos (auto = match ros_distribution)'
         type: string
-        default: 'main'
+        default: 'auto'
 
 jobs:
   tsan:
@@ -21,6 +21,7 @@ jobs:
       # NOTE: Avoid adding comments in the package lines, this can break some of the called scripts in github actions
       packages: |
         rmf_battery
+      dist-matrix: '[{"ros_distribution": "jazzy"}]'
       ros-distribution: ${{ inputs.ros_distribution || '' }}
       mixin: tsan
-      repos-branch-override: ${{ inputs.repos_branch_override || 'main' }}
+      repos-branch-override: ${{ inputs.repos_branch_override || 'auto' }}
